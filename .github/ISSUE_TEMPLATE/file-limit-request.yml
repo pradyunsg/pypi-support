@@ -14,7 +14,6 @@ body:
 
   - type: input
     attributes:
-      label: Project URL
       description: >
         Provide a link to the PyPI page for the project in question,
         i.e. https://pypi.org/project/<PROJECT_NAME>
@@ -24,33 +23,24 @@ body:
 
   - type: input
     attributes:
-      label: New limit
-      description: Please specify a new size limit, in megabytes, that you want.
+      description: >
+        What is the new size limit, in megabytes, that you are requesting?
       placeholder: 0 MB
     validations:
       required: true
 
   - type: checkboxes
     attributes:
-      description: Please update the title, to mention the project name and the requested limit.
+      description: The title of this issue should be updated, to mention the project name and the requested limit.
       options:
         - label: I have updated the title.
-          required: true
-
-  - type: checkboxes
-    attributes:
-      label: Does this project already exist?
-      description: >
-        If it doesn't, you can create an empty 0.0.0 release prior to filing this request.
-      options:
-        - label: "Yes" # should be a str but YAML parses unwrapped yes/no as bool
           required: true
 
   - type: dropdown
     attributes:
       label: Which indexes
       description: >-
-        Which index/indexes you need the increase for?
+        Which index/indexes you need the increase on?
         (PyPI, Test PyPI, or both)
       multiple: true
       options:
@@ -63,7 +53,7 @@ body:
     attributes:
       label: Reasons for the request
       description: >
-        A description of the project, and the reason for the
+        Provide a description of the project, and the reason for the
         additional size.
 
         If you expect your release sizes/total project size to increase in
