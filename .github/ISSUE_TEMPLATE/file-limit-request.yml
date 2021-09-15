@@ -7,7 +7,7 @@ labels: limit request
 body:
   - type: markdown
     attributes:
-      value: |
+      value: >
         If you can't upload your project's release to PyPI because you're
         hitting the upload file size limit, we can sometimes increase your
         limit.
