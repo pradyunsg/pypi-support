@@ -1,0 +1,83 @@
+---
+name: Size Limit Request (per-file)
+title: "File Limit Request: PROJECT_NAME - 000 MB"
+description: Your release files are larger than the per-file limit.
+labels: limit request
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        If you can't upload your project's release to PyPI because you're
+        hitting the upload file size limit, we can sometimes increase your
+        limit.
+
+  - type: input
+    attributes:
+      label: Project URL
+      description: |
+        Provide a link to the PyPI page for the project in question,
+        i.e. https://pypi.org/project/<PROJECT_NAME>
+      placeholder: "https://pypi.org/project/<PROJECT_NAME>"
+    validations:
+      required: true
+
+  - type: input
+    attributes:
+      label: New limit
+      description: Please specify a new size limit, in megabytes, that you want.
+      placeholder: 0 MB
+    validations:
+      required: true
+
+  - type: checkboxes
+    attributes:
+      description: Please update the title, to mention the project name and the requested limit.
+      options:
+        - label: I have updated the title.
+          required: true
+
+  - type: checkboxes
+    attributes:
+      label: Does this project already exist?
+      description: |
+        If it doesn't, you can create an empty 0.0.0 release prior to filing this request.
+      options:
+        - label: "Yes" # should be a str but YAML parses unwrapped yes/no as bool
+          required: true
+
+  - type: dropdown
+    attributes:
+      label: Which indexes
+      description: >-
+        Which index/indexes you need the increase for?
+        (PyPI, Test PyPI, or both)
+      multiple: true
+      options:
+        - PyPI
+        - TestPyPI
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: Reasons for the request
+      description: |
+        A description of the project, and the reason for the
+        additional size.
+
+        If you expect your release sizes/total project size to increase in
+        the future, mention it here.
+    validations:
+      required: true
+
+  - type: checkboxes
+    attributes:
+      label: Code of Conduct
+      description: |
+        Read the [PSF Code of Conduct][CoC] first.
+
+        [CoC]: https://github.com/pypa/.github/blob/main/CODE_OF_CONDUCT.md
+      options:
+        - label: I agree to follow the PSF Code of Conduct
+          required: true
